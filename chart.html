@@ -8,6 +8,7 @@
 </head>
 <body>
   <canvas id="chart"></canvas>
+  <canvas id="chart2"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
   <script>
     const canvas = document.getElementById('chart')
@@ -49,6 +50,42 @@
         plugins: {
           title: {
             text: '高雄路名',
+            display: true
+          }
+        }
+        // 關閉自動縮放
+        // responsive: false
+      }
+    })
+
+    const canvas2 = document.getElementById('chart2')
+    const chart2 = new Chart(canvas2, {
+      type: 'bar',
+      data: {
+        // X 軸名稱
+        labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+        // 資料集
+        datasets: [
+          {
+            label: 'ABC',
+            data: [10, 20, 80, 75, 65, 35],
+            borderWidth: 5,
+            borderColor: 'red',
+            backgroundColor: 'pink'
+          }
+        ]
+      },
+      options: {
+        // 設定從 0 開始
+        scales: {
+          yAxes: {
+            beginAtZero: true
+          }
+        },
+        // 圖表標題
+        plugins: {
+          title: {
+            text: 'ABC',
             display: true
           }
         }
